@@ -27,6 +27,8 @@
 #ifdef ENABLE_NLS
 #  include <libintl.h>
 #endif
+
+/* List of references to widgets */
 Gtk::TextView* xsampa;
 Gtk::TextView* ipa;
 Glib::RefPtr<Gtk::TextBuffer> text1;
@@ -40,11 +42,17 @@ Glib::RefPtr<Gtk::Clipboard> safe;
  #define UI_FILE PACKAGE_DATA_DIR"/ui/xsampa2ipa.ui" 
 /*#define UI_FILE "src/xsampa2ipa.ui"*/
 
+/**
+* Closes the program.
+*/
 void CloseApp()
 {
 	Gtk::Main::quit();
 }
 
+/**
+* Clears the text.
+*/
 void ClearText()
 {
 	if(xsampa && ipa)
@@ -54,6 +62,9 @@ void ClearText()
 	}
 }
 
+/**
+* Converts X-SAMPA to IPA
+*/
 void Convert()
 {
 	if(xsampa && ipa)
@@ -210,6 +221,9 @@ void Convert()
 	}
 }
 
+/**
+* Show the About program dialog window.
+*/
 void aboutprogram()
 {
 	Gtk::AboutDialog about;
